@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>To Do List</title>
+</head>
+<body>
+        <div class="container">
+                <h1 class="text-center my-5">ToDo App</h1>
+
+                <form id="formulario">
+                        <input 
+                        type="text"
+                        placeholder="Ingrese Tarea"
+                        class="form-control my-2"
+                        autofocus
+                        >
+                        <button class="btn btn-block btn-primary" type="submit">Agregar</button>
+                </form>
+
+                <div id="listaTareas" class="mt-3"></div>
+                
+        </div>
+        
+        
+        <template id="template">
+                <div class="alert alert-warning d-flex justify-content-between aling-items-center">
+                        <p class="m-0">tarea 1</p>
+                        <h3 class="m-0">
+                                <i class="fas fa-check-circle text-success" role="button"> </i>
+                                <i class=" fas fa-minus-circle text-danger" role="button"></i>
+                               
+                        </h3>
+                </div>
+                
+        </template>
+
+
+        <script src="./JS/main.js"></script>
+</body>
+</html>
