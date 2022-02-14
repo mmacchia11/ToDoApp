@@ -3,9 +3,9 @@ const listaTareas = document.querySelector('#listaTareas');
 const input = document.querySelector('input')
 const template = document.querySelector('#template');
 const fragment = document.createDocumentFragment()
-
+/* 
 let tareas = {
-         1644776478488: {
+          1644776478488: {
                 id:1644776478488,
                 texto:'tarea #1',
                 estado: false
@@ -14,10 +14,17 @@ let tareas = {
                 id:1644776519761,
                 texto:'tarea #2',
                 estado: false
-        } 
+        }  
 }
+ */
+
+let tareas = {}
+
 
 document.addEventListener('DOMContentLoaded',() =>{
+        if(localStorage.getItem('tareas')){
+                tareas = JSON.parse(localStorage.getItem('tareas'))
+        }
         pintarTareas()
 })
 
@@ -27,13 +34,8 @@ listaTareas.addEventListener('click',e =>{
 })
 
 
-
-
 formulario.addEventListener('submit', e =>{
         e.preventDefault()
-
-       // console.log(input.value)
-
         setTarea()
 })
 
@@ -52,11 +54,8 @@ const setTarea = e => {
 
         tareas[tarea.id] = tarea
 
-       // console.log(tareas)
-
         formulario.reset()
         input.focus()
-
 
         pintarTareas()
 }
@@ -65,6 +64,17 @@ const setTarea = e => {
 
 
 const pintarTareas = () => {
+
+        //localStorage
+
+        localStorage.setItem('tareas',JSON.stringify(tareas))
+
+        if(Object.values(tareas).length === 0){
+                listaTareas.innerHTML = `<div class="alert alert-dark">
+                No hay tarea pendientes😎
+        </div>`
+                return
+        }
 
         listaTareas.innerHTML = ''
    
